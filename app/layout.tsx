@@ -7,7 +7,7 @@ const font = Single_Day({
 });
 
 export const metadata: Metadata = {
-  title: 'Mara | Make American Rich Again',
+  title: 'Make American Rich Again - Donald J Trump',
   description: 'Make American Rich Again - Donald J Trump',
 };
 
