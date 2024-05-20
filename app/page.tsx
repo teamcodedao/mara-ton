@@ -1,9 +1,15 @@
+'use client';
+
 import Image from 'next/image';
 import clsx from 'clsx';
+import useMeasure from 'react-use-measure';
 
 import background from './background.png';
+import Logo from './logo';
 
 export default function Home() {
+  const [ref, bounds] = useMeasure();
+
   return (
     <main className='min-h-screen relative'>
       <Image
@@ -13,7 +19,7 @@ export default function Home() {
         alt=''
         className='w-full h-screen object-cover object-top'
       />
-      <div className='absolute inset-0'>
+      <div ref={ref} className='absolute inset-0'>
         <div
           className={clsx(
             'ml-14 xl:ml-20 mt-12 xl:mt-16 flex gap-x-8',
@@ -31,7 +37,7 @@ export default function Home() {
         <div
           className={clsx(
             'mt-20 lg:mt-36 xl:mt-64 flex justify-between px-5 gap-x-10 gap-y-7 text-[40px]',
-            'max-[745px]:multi-[`flex-col;*:flex-1;*:self-center;*:text-center`]'
+            'max-[745px]:multi-[`flex-col-reverse;*:flex-1;*:self-center;*:text-center`]'
           )}
         >
           <div className='text-left'>
@@ -45,6 +51,9 @@ export default function Home() {
             <p>- Donald J Trump</p>
           </div>
         </div>
+        {bounds.width > 0 && (
+          <Logo containerWidth={bounds.width} containerHeight={bounds.height} />
+        )}
       </div>
     </main>
   );
