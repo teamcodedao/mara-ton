@@ -8,5 +8,5 @@
 }
 
 body {
-  @apply bg-cover bg-[url(./blur.png)] bg-no-repeat;
+  @apply min-h-screen bg-cover bg-[url(./blur.png)] bg-no-repeat;
 }
